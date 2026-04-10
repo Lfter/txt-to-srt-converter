@@ -3,6 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT_DIR"
+ICON_PATH="$ROOT_DIR/assets/icon/txt_to_srt.icns"
 
 if ! command -v python3 >/dev/null 2>&1; then
   echo "python3 未找到，请先安装 Python 3。" >&2
@@ -15,6 +16,7 @@ fi
 
 .venv/bin/pip install -r requirements.txt -r requirements-build.txt
 .venv/bin/pytest -q
+"$ROOT_DIR/packaging/macos/generate_icon.sh"
 
 rm -rf build dist
 
@@ -23,6 +25,7 @@ rm -rf build dist
   --clean \
   --windowed \
   --name txt_to_srt \
+  --icon "$ICON_PATH" \
   --osx-bundle-identifier com.ltzz.txttosrt \
   --specpath "$ROOT_DIR/packaging/macos" \
   --distpath "$ROOT_DIR/dist" \

@@ -1,7 +1,9 @@
 .venv/
+.tools/
 .pytest_cache/
 build/
 dist/
+assets/icon/*.iconset/
 __pycache__/
 *.pyc
 *.pyo

@@ -32,6 +32,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=['/Users/ltzz/Desktop/Python/txt-to-srt-converter/assets/icon/txt_to_srt.icns'],
 )
 coll = COLLECT(
     exe,
@@ -45,6 +46,6 @@ coll = COLLECT(
 app = BUNDLE(
     coll,
     name='txt_to_srt.app',
-    icon=None,
+    icon='/Users/ltzz/Desktop/Python/txt-to-srt-converter/assets/icon/txt_to_srt.icns',
     bundle_identifier='com.ltzz.txttosrt',
 )
